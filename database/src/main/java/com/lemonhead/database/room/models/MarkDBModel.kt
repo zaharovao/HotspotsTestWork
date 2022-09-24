@@ -9,8 +9,8 @@ import com.lemonhead.domain.mapper.Mapper
 class MarkDBModel(
     @PrimaryKey
     val id: String,
-    val latitude: Long,
-    val longitude: Long,
+    val latitude: Double,
+    val longitude: Double,
 ) {
     class DBModelMapper : Mapper<MarkDBModel, MarkEntity>() {
         override fun mapFromEntity(from: MarkEntity): MarkDBModel {

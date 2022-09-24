@@ -20,14 +20,18 @@ class DataLoadServiceImpl(
         val isr = InputStreamReader(csvFile)
         val strings = BufferedReader(isr).readLines()
         return if (strings.isNotEmpty()) {
-            strings.map { toCoordinate(it) }
+            strings.mapNotNull { toCoordinate(it) }
         } else {
             throw EmptyFileException()
         }
     }
 
-    private fun toCoordinate(line: String): MarkEntity {
-        val cords = line.split(",")
-        return MarkEntity(cords[0], cords[1].toLong(), cords[2].toLong())
+    private fun toCoordinate(line: String): MarkEntity? {
+        return try {
+            val cords = line.split(",")
+            MarkEntity(cords[1], cords[2].toDouble(), cords[3].toDouble())
+        } catch (e: Exception) {
+            null
+        }
     }
 }

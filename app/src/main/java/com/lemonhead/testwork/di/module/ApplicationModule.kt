@@ -21,7 +21,7 @@ class ApplicationModule {
 
     @Singleton
     @Provides
-    fun provideMarkService(database: MainDatabase): IMarkCache {
+    fun provideMarkCache(database: MainDatabase): IMarkCache {
         return MarkCacheImpl(database.getMarkDao())
     }
 
