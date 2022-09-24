@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Test Work</string>
+
+    <!-- Alert Dialog -->
+    <string name="alert_dialog_need_to_load_data_title">Marks were not find</string>
+    <string name="alert_dialog_need_to_load_data_message">Marks were not find in app\'s cache. Please select .csv file instead.</string>
+    <string name="alert_dialog_need_to_load_data_ok_button_text">Select</string>
+    <string name="alert_dialog_need_to_load_data_cancel_button_text">Cancel</string>
+
+    <string name="alert_dialog_empty_file_title">Empty file</string>
+    <string name="alert_dialog_empty_file_message">Looks like the file you selected is empty. Choose another one</string>
+    <string name="alert_dialog_empty_file_ok_button_text">@string/alert_dialog_need_to_load_data_ok_button_text</string>
+    <string name="alert_dialog_empty_file_cancel_button_text">@string/alert_dialog_need_to_load_data_cancel_button_text</string>
+
+    <string name="alert_dialog_incorrect_path_title">Incorrect file or path</string>
+    <string name="alert_dialog_incorrect_path_message">File or path is not correct. Try another one</string>
+    <string name="alert_dialog_incorrect_path_ok_button_text">@string/alert_dialog_need_to_load_data_ok_button_text</string>
+    <string name="alert_dialog_incorrect_path_cancel_button_text">@string/alert_dialog_need_to_load_data_cancel_button_text</string>
+
+    <string name="alert_dialog_unhandled_error_title">Oops, something went wrong</string>
+    <string name="alert_dialog_unhandled_error_message">Unhandled error</string>
+    <string name="alert_dialog_unhandled_error_ok_button_text">Retry</string>
+    <string name="alert_dialog_unhandled_error_cancel_button_text">OK</string>
 </resources>
