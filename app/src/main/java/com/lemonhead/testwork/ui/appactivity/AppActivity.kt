@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.lemonhead.testwork.R
+import com.lemonhead.testwork.di.DIManager
+import com.lemonhead.testwork.di.component.DaggerApplicationComponent
 import com.lemonhead.testwork.ui.splash.SplashFragment
 import com.lemonhead.testwork.utils.OnNavigateListener
 import com.lemonhead.testwork.utils.attachFragment
@@ -44,6 +46,4 @@ class AppActivity : MvpAppCompatActivity(), AppView, OnNavigateListener {
             tag,
         )
     }
-
-
 }
