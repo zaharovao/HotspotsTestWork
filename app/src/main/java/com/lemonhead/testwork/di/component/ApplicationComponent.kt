@@ -2,6 +2,7 @@ package com.lemonhead.testwork.di.component
 
 import android.content.Context
 import com.lemonhead.testwork.di.module.ApplicationModule
+import com.lemonhead.testwork.di.module.MapScreenModule
 import com.lemonhead.testwork.di.module.SplashScreenModule
 import dagger.BindsInstance
 import dagger.Component
@@ -14,6 +15,8 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     fun getSplashScreenSubcomponent(splashScreenModule: SplashScreenModule): SplashScreenSubcomponent
+
+    fun getMapScreenSubcomponent(mapScreenModule: MapScreenModule): MapScreenSubcomponent
 
     @Component.Builder
     interface Builder {

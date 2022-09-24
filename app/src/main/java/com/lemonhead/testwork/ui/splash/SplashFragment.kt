@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.lemonhead.testwork.R
@@ -19,18 +20,19 @@ class SplashFragment : MvpAppCompatFragment(R.layout.fragment_splash), SplashVie
     lateinit var llLoading: LinearLayout
 
     private var onNavigateListener: OnNavigateListener? = null
-    private val getFile = requireActivity().activityResultRegistry.register(
-        SELECT_FILE_KEY,
-        ActivityResultContracts.OpenDocument(),
-    ) {
-        presenter.loadFromFile(it.toString())
-    }
+    private var getFile: ActivityResultLauncher<Array<String>>? = null
 
     private val presenter by moxyPresenter { SplashPresenter() }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         onNavigateListener = context as AppActivity
+        getFile = requireActivity().activityResultRegistry.register(
+            SELECT_FILE_KEY,
+            ActivityResultContracts.OpenDocument(),
+        ) {
+            presenter.loadFromFile(it.toString())
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,7 +48,7 @@ class SplashFragment : MvpAppCompatFragment(R.layout.fragment_splash), SplashVie
             AlertDialog.BUTTON_NEUTRAL,
             getString(error.okBtn),
         ) { _, _ ->
-            getFile.launch(arrayOf("text/*"))
+            getFile?.launch(arrayOf("text/*"))
             alertDialog.dismiss()
 
         }

@@ -74,4 +74,7 @@ dependencies {
     implementation "com.github.moxy-community:moxy-androidx:$moxy_version"
     implementation "com.github.moxy-community:moxy-material:$moxy_version"
     kapt "com.github.moxy-community:moxy-compiler:$moxy_version"
+
+    // yandex map
+    implementation 'com.yandex.android:maps.mobile:4.2.1-lite'
 }
